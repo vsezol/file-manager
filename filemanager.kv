@@ -1,0 +1,76 @@
+#:kivy 1.11.0
+
+<File@Button>
+    size_hint: 1., None
+	background_color: 0., 0., 1., 1
+    background_normal: ""
+	font_size: 25
+	height: 50
+	text: "file.txt"
+
+<MainWidget>
+	files_wrapper: files_wrapper
+	files_list: files_list
+
+	BoxLayout:
+		orientation: "vertical"
+		size: root.width, root.height
+
+		BoxLayout:
+			orientation: "horizontal"
+			size_hint: (1., .09)
+			spacing: 5
+			padding: 5, 5, 5, 5
+
+			TextInput:
+				size_hint: (0.75, 1.)
+				multiline: False
+				font_size: 25
+
+			Button:
+				size_hint: (0.25, 1.)
+				text: "Search"
+				background_color: 0, 1., 0, 1
+				color: 0,0,0,1
+				font_size: 25
+				background_normal: ""
+
+		BoxLayout:
+			orientation: "horizontal"
+			size_hint: (1., .09)
+			spacing: 5
+			padding: 5, 0, 5, 5
+
+			Button:
+				text: "OPEN"
+				color: 0,0,0,1
+				font_size: 25
+				background_color: 0, 0.75, 0, 1
+				background_normal: ""
+
+			Button:
+				text: ".."
+				color: 0,0,0,1
+				font_size: 25
+				background_color: 0.75, 0.75, 0, 1
+				background_normal: ""
+				on_press: app.back_up()
+
+			Button:
+				text: "DELETE"
+				color: 0,0,0,1
+				font_size: 25
+				background_color: 0.75, 0, 0, 1
+				background_normal: ""
+
+
+		ScrollView:
+			size_hint: (1., 0.82)
+			id: files_wrapper
+			GridLayout:
+				size_hint: (1., None)
+				cols: 2
+				spacing: 5
+				padding: (5, 0, 5, 5)
+				id: files_list
+				height: 0
