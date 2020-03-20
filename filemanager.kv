@@ -9,6 +9,7 @@
 	text: "file.txt"
 
 <MainWidget>
+	name: 'main'
 	files_wrapper: files_wrapper
 	files_list: files_list
 
@@ -34,6 +35,7 @@
 				color: 0,0,0,1
 				font_size: 25
 				background_normal: ""
+				on_release: app.root.current = 'second'
 
 		BoxLayout:
 			orientation: "horizontal"
@@ -47,6 +49,7 @@
 				font_size: 25
 				background_color: 0, 0.75, 0, 1
 				background_normal: ""
+				on_release: app.open_file()
 
 			Button:
 				text: ".."
@@ -54,7 +57,7 @@
 				font_size: 25
 				background_color: 0.75, 0.75, 0, 1
 				background_normal: ""
-				on_press: app.back_up()
+				on_release: app.back_up()
 
 			Button:
 				text: "DELETE"
@@ -62,6 +65,7 @@
 				font_size: 25
 				background_color: 0.75, 0, 0, 1
 				background_normal: ""
+				on_release: app.delete_file()
 
 
 		ScrollView:
