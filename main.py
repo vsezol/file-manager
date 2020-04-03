@@ -48,12 +48,6 @@ class MainWidget(Screen):
             self.files_list.add_widget(fileblock)
             self.files_list.height += fileblock.height / 2 + 5
 
-class TextWidget(Screen):
-    pass
-
-class WidgetManager(ScreenManager):
-    pass
-
 kv = Builder.load_file('filemanager.kv')
 
 class FileManagerApp(App):
